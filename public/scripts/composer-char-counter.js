@@ -1,17 +1,16 @@
 $(document).ready(function () {
     console.log('document is ready');
 
-    const a = $("textarea");
-    //console.log(a[0]);
-    //console.log(a[0]).nodeValue;
-    let maxLength = 140;
-
-    a[0].addEventListener('mouseover', function () {
-        console.log('mouseovered');
-        console.log(maxLength - this.value.length);
- 
-        
+    const maxLength = 140;
     
+    $("#text")[0].addEventListener('keydown', function () {
+        let charRemain = maxLength - this.value.length;
+        console.log('keydowned');
+        console.log(charRemain);
+        $("#counter")[0].textContent = charRemain;
+
     });
+
+
 });
 

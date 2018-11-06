@@ -10,13 +10,13 @@ h2{
     margin-bottom:15px;
     border-bottom: 1px solid #000;
 }
-.textarea{
+#text{
     height:100px;
     width:100%;
     padding-left:10px;
     padding-right:10px;
 }
 
-.counter{
+#counter{
     float:right;
 }
