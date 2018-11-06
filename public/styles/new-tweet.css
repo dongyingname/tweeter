@@ -1,0 +1,20 @@
+form{
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom:10px;
+}
+h2{
+    padding-top: 15px;
+    margin-left: 48px;
+    margin-right:48px;
+    margin-bottom:15px;
+    border-bottom: 1px solid #000;
+}
+.textarea{
+    height:100px;
+    width:100%;
+}
+
+.counter{
+    float:right;
+}

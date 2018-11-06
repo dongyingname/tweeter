@@ -1,0 +1,33 @@
+nav:before,
+nav:after {
+  content: "";
+  display: table;
+}
+nav:after {
+  clear: both;
+}
+nav {
+  *zoom: 1;
+}
+    
+nav {
+    height: 80px;
+    background-color: #00a087;
+    color: #e8fdff;
+    padding-left :2em;
+    padding-right :2em;
+    
+    
+}
+
+#nav-bar .logo {
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-right: 10px;
+}
+
+#nav-bar .header {
+    font-size: 200%;
+    float: left;
+}
