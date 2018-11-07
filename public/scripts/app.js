@@ -25,8 +25,8 @@ function createTweetElement(data) {
 
 function renderTweets(data) {
     for (let i = 0; i < data.length; i++) {
-     const $tweet = createTweetElement(data[i]);
-     $('main').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+        const $tweet = createTweetElement(data[i]);
+        $('main').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 
     }
 }
@@ -79,6 +79,23 @@ const tweetData = [{
 ];
 $(document).ready(function () {
     renderTweets(tweetData);
+    function loadTweets(){
+     $('form').submit(function (event) {
+              event.preventDefault();
+              const $form = $(this);
+
+             // console.log($form.serialize());
+             const $formData = $form.serialize();
+             console.log($formData);
+
+              console.log('Form submitted, performing ajax call...');
+              $.ajax('/tweets/', { type: 'POST', data: $formData })
+                  .then(function () {
+              });
+          });
+          
+    };
+    loadTweets();
 });
 
 

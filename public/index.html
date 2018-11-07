@@ -21,6 +21,24 @@
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script>
+
+    // $(document).ready(function(){
+    //       $('form').submit(function (event) {
+    //           event.preventDefault();
+    //           const $form = $(this);
+
+    //          // console.log($form.serialize());
+    //          const $formData = $form.serialize();
+    //          console.log($formData);
+
+    //           console.log('Form submitted, performing ajax call...');
+    //           $.ajax('/tweets/', { type: 'POST', data: $formData })
+    //               .then(function () {
+    //           });
+    //       });
+    //     })
+  </script>
 </head>
 
 <body>
@@ -36,14 +54,14 @@
   <main class="container">
     <section class="section new-tweet">
       <h2>Compose Tweet</h2>
-      <form method="POST" action="/tweets/">
+      <form id="tweetForm" method="POST" action="/tweets/">
         <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
         <input class="click" type="submit" value="Tweet">
         <span id="counter"">140</span>
         </form>
       </section>
       
-        <article class=" article tweet">
+        <!-- <article class=" article tweet">
           <header class="tweetHeader">
             <img class="imgHeader" src="/images/chopper.png" alt="chopper">
             <span class="span tweeter">Name</span>
@@ -56,7 +74,7 @@
             <span class="span link">This are some links</span>
 
           </footer>
-          </article>
+          </article> -->
   </main>
 
 
