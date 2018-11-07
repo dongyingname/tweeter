@@ -20,7 +20,6 @@
 
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
@@ -35,15 +34,30 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
-    <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets/">
-          <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
-          <input class="click" type="submit" value="Tweet">
-          <span id="counter"">140</span>
+    <section class="section new-tweet">
+      <h2>Compose Tweet</h2>
+      <form method="POST" action="/tweets/">
+        <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
+        <input class="click" type="submit" value="Tweet">
+        <span id="counter"">140</span>
         </form>
       </section>
+        <section class=" section tweet">
+          <header class="tweetHeader">
+            <img class="imgHeader" src="/images/chopper.png" alt="chopper">
+            <div class="div tweeter">Name</div>
+            <div class="div hashtag">@who</div>
+          </header>
+          <div class="div tweets">This is my tweet</div>
+          <footer class="tweetFooter">
+            <div class="div day">10 day ago</div>
+
+            <div class="div link">This are some links</div>
+
+          </footer>
+    </section>
   </main>
+
 
 </body>
 

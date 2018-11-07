@@ -1,14 +1,14 @@
-nav:before,
-nav:after {
+header:before,
+header:after {
   content: "";
   display: table;
 }
 
-nav:after {
+header:after {
   clear: both;
 }
 
-nav {
+header {
   *zoom: 1;
 }
 
@@ -22,7 +22,7 @@ nav {
 
 }
 
-#nav-bar .logo {
+.logo {
   height: 80px;
   width: 80px;
   float: left;
@@ -33,3 +33,4 @@ nav {
   font-size: 200%;
   float: left;
 }
+

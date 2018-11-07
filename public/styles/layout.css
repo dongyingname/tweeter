@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -26,8 +29,23 @@ main {
 
   width: 450px;
   background-color: white;
-  margin:30px auto;
+  margin: 30px auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 
+}
+
+section {
+  background-color: aqua;
+  padding-top:12px;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 25px;
+  opacity: 0.8;
 }
 
 

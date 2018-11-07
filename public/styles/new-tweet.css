@@ -1,14 +1,10 @@
 form{
-    padding-left: 2em;
-    padding-right: 2em;
     padding-bottom:15px;
 }
 h2{
-    padding-top: 15px;
-    margin-left: 48px;
-    margin-right:48px;
-    margin-bottom:15px;
-    border-bottom: 1px solid #000;
+    margin-top:0;
+
+    border-bottom: 2px solid #000;
 }
 #text{
     height:100px;
@@ -18,5 +14,50 @@ h2{
 }
 
 #counter{
+    float:right;
+}
+
+.imgHeader {
+    float:left;
+    height: 50px;
+    width:50px;
+}
+
+.tweetHeader{
+    background-color:pink;
+}
+
+.tweetFooter{
+    border-top: 1px solid black;
+    
+}
+
+.section.tweet{
+    padding-bottom:20px;
+    
+}
+.section.tweet:hover{
+    opacity: 1;
+}
+
+.div.tweeter{
+    float: left;
+}
+.div.hashtag{
+
+    float:right;
+}
+
+.div.tweets{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.div.day{
+    font-size:50%;
+    float:left
+}
+.div.link{
+    font-size:50%;
     float:right;
 }
