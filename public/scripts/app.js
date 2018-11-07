@@ -79,21 +79,25 @@ const tweetData = [{
 ];
 $(document).ready(function () {
     renderTweets(tweetData);
-    function loadTweets(){
-     $('form').submit(function (event) {
-              event.preventDefault();
-              const $form = $(this);
 
-             // console.log($form.serialize());
-             const $formData = $form.serialize();
-             console.log($formData);
+    function loadTweets() {
+        $('form').submit(function (event) {
+            event.preventDefault();
+            const $form = $(this);
+            const $formData = $form.serialize();
 
-              console.log('Form submitted, performing ajax call...');
-              $.ajax('/tweets/', { type: 'POST', data: $formData })
-                  .then(function () {
-              });
-          });
-          
+            if ($formData.length > 140) {
+                alert('The maximum chacaters input is 140!');
+            } else { // console.log($form.serialize());
+                //console.log($formData);
+                console.log('Form submitted, performing ajax call...');
+                $.ajax('/tweets/', {
+                    type: 'POST',
+                    data: $formData
+                })
+            }
+        });
+
     };
     loadTweets();
 });
