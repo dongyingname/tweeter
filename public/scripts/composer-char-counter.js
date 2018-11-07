@@ -6,7 +6,6 @@ function changeCounter() {
         const maxLength = 140;
         let charRemain = maxLength - this.value.length;
         $("#counter")[0].textContent = charRemain;
-       
         if (charRemain < 0) {
             $("#counter")[0].style.color = 'red';
         } else {

@@ -45,10 +45,12 @@ section {
   margin-bottom: 1em;
   border: 1px solid black;
   border-radius: 25px;
-  opacity: 0.8;
+  opacity: 1;
 }
 
-
+span{
+  display:block;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
