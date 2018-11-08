@@ -29,15 +29,21 @@ function renderTweets(data) {
 
 function createSubmitHandler(callback) {
     $('form').submit(function (event) {
+
         event.preventDefault();
         const form = $(this);
         const formData = form.serialize();
         const text = $('textarea').val();
         if (!text.length) {
-            return alert('Please type something!!!');
+            return $("span.low").slideToggle('slow');
+
         } else if (text.length > 140) {
-            return alert('The maximum chacaters input is 140!');
+            return $("span.high").slideToggle('slow');
         } else {
+            $('textarea').keydown(function (event) {
+                $("span.low").hide('slow');
+                $("span.high").hide('slow');
+            });
             console.log('Form submitted, performing ajax call...');
             $.ajax('/tweets/', {
                 type: 'POST',
@@ -65,8 +71,6 @@ function loadTweets() {
 
 function clickComposer() {
     $('#composer').click(function (event) {
-        const nav = $('.section.new-tweet');
-        console.log('clicked composer button');
         $(".section").slideToggle('slow', function () {
             $("#text").focus();
         });
@@ -77,4 +81,3 @@ $(document).ready(function () {
     clickComposer();
 
 });
-

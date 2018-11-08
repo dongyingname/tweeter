@@ -66,3 +66,7 @@ span.link{
     font-size:50%;
     float:right;
 }
+
+span.error{
+    display:none;
+}
