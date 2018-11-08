@@ -13,21 +13,16 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
 
 body {
   margin: 0;
   color: #244751;
   background-color: #eee;
   font-family: 'Mali', cursive;
-
 }
 
 main {
   border-radius: 25px;
-
   width: 450px;
   background-color: white;
   margin: 30px auto;
@@ -35,12 +30,11 @@ main {
   padding-right: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-
 }
 
 section {
   background-color: aqua;
-  padding-top:12px;
+  padding-top: 12px;
   padding-left: 1em;
   padding-right: 1em;
   margin-bottom: 1em;
@@ -49,9 +43,6 @@ section {
   opacity: 1;
 }
 
-span{
-  display:block;
+span {
+  display: block;
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */

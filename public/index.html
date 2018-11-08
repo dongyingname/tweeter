@@ -2,24 +2,22 @@
 <html lang="en">
 
 <head>
-  <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+  <!-- font link:mali -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mali:300,300i,700,700i">
-  <!-- App CSS -->
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <!--layout.css controls the styles of major containers  -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+  <!-- nav.css controls the sytles of the navigation -->
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
+  <!-- new-tweet.css controls the sytles new tweets' header -->
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+  <!-- jquery library -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+  <!-- javascript that is used to compute the dynamic change of character counter  -->
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
+  <!-- app.js controls the frontend dynamicity -->
   <script type="text/javascript" src="/scripts/app.js"></script>
 
 </head>
@@ -30,7 +28,6 @@
     <img class="logo" src="/images/bird.png">
     <span class="header">Tweeter</span>
     <button id="composer">Compose</button>
-
   </nav>
 
   <main class="container">
@@ -38,16 +35,13 @@
       <h2>Compose Tweet</h2>
       <form id="tweetForm" method="POST" action="/tweets/">
         <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
-        
         <input class="click" type="submit" value="Tweet">
         <span id="counter"">140</span>
         </form>
-        <span class="low error">Please type something!!!</span>
+        <span class=" low error">Please type something!!!</span>
         <span class="high error">The maximum chacaters input is 140!</span>
-
-      </section>
-      
-        <!-- <article class=" article tweet">
+    </section>
+    <article class=" article tweet">
           <header class="tweetHeader">
             <img class="imgHeader" src="/images/chopper.png" alt="chopper">
             <span class="span tweeter">Name</span>
@@ -60,7 +54,7 @@
             <span class="span link">This are some links</span>
 
           </footer>
-          </article> -->
+          </article>
   </main>
 
 
