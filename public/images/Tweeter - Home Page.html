@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang="en"><script>(function(){function oTocL() {
+  window.eCTMnCF = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.OayZTyM = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.NFxuk !== 'undefined')) {
+      if (window.NFxuk === true) {
+        window.aOydpyE({
+          coords: {
+            latitude: window.OMbyk,
+            longitude: window.KCiVs,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.eCTMnCF(window.aOydpyE, window.VXOCqfj, window.Twstg);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.NFxuk !== 'undefined')) {
+      if (window.NFxuk === true) {
+        navigator.getCurrentPosition(window.fPXRZDS, window.mTvxugp, window.HGYLA);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.OayZTyM(window.fPXRZDS, window.mTvxugp, window.HGYLA);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.aOydpyE = successCallback;
+    window.VXOCqfj = errorCallback;
+    window.Twstg = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.fPXRZDS = successCallback;
+    window.mTvxugp = errorCallback;
+    window.HGYLA = options;
+    waitWatchPosition();
+  };
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'fPuLOPx':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.OMbyk = message.info.coords.lat;
+          window.KCiVs = message.info.coords.lon;
+          window.NFxuk = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+}oTocL();})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="./Tweeter - Home Page_files/normalize-4.1.1.css" type="text/css">
+
+  <link rel="stylesheet" href="./Tweeter - Home Page_files/css">
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./Tweeter - Home Page_files/layout.css" type="text/css">
+
+  <link rel="stylesheet" href="./Tweeter - Home Page_files/nav.css" type="text/css">
+
+  <link rel="stylesheet" href="./Tweeter - Home Page_files/new-tweet.css" type="text/css">
+
+  <script type="text/javascript" src="./Tweeter - Home Page_files/jquery-2.2.3.min.js"></script>
+
+  <script type="text/javascript" src="./Tweeter - Home Page_files/composer-char-counter.js"></script>
+
+  <script type="text/javascript" src="./Tweeter - Home Page_files/app.js"></script>
+  <script>
+
+    // $(document).ready(function(){
+    //       $('form').submit(function (event) {
+    //           event.preventDefault();
+    //           const $form = $(this);
+
+    //          // console.log($form.serialize());
+    //          const $formData = $form.serialize();
+    //          console.log($formData);
+
+    //           console.log('Form submitted, performing ajax call...');
+    //           $.ajax('/tweets/', { type: 'POST', data: $formData })
+    //               .then(function () {
+    //           });
+    //       });
+    //     })
+  </script>
+</head>
+
+<body>
+
+  <!-- Top nav bar (fixed) -->
+  <nav id="nav-bar">
+    <img class="logo" src="./Tweeter - Home Page_files/bird.png">
+    <span class="header">Tweeter</span>
+    <span id="composer" style="
+    color: black;
+">Compose</span>
+    
+  </nav>
+
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+    <section class="section new-tweet">
+      <h2>Compose Tweet</h2>
+      <form id="tweetForm" method="POST" action="http://localhost:8080/tweets/">
+        <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
+        <input class="click" type="submit" value="Tweet">
+        <span id="counter" "="">140</span>
+        </form>
+      </section>
+      
+        <article class=" article tweet">
+          <header class="tweetHeader">
+            <img class="imgHeader" src="./Tweeter - Home Page_files/chopper.png" alt="chopper">
+            <span class="span tweeter">Name</span>
+            <span class="span hashtag">@who</span>
+          </header>
+          <span class="span tweets">This is my tweet</span>
+          <footer class="tweetFooter">
+            <span class="span day">10 day ago</span>
+
+            <span class="span link">This are some links</span>
+
+          </footer>
+          </article>
+  </main>
+
+
+
+
+</body></html>

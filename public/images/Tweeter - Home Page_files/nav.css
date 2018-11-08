@@ -34,21 +34,10 @@ nav {
   float: left;
 }
 
-#composer {
-  margin-top: 15px;
-  float: right;
-  background: lightgray;
-  color: black;
-  border-radius: 10px;
-  padding: 0.3em;
-  display: block;
-  border: black solid 0.5px;
-  opacity: 0.7;
-}
-#composer:hover{
-  opacity: 1;
-}
-
-.new-tweet{
-  display:none;
+#composer{
+  float:right;
+  background: greenyellow;
+  height:20px;
+  width: 50px;
+  
 }

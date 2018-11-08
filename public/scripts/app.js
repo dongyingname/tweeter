@@ -23,94 +23,58 @@ function createTweetElement(data) {
 }
 
 function renderTweets(data) {
-
     const $tweet = createTweetElement(data);
     $('main').append($tweet);
 }
-// const tweetData = [{
-//         "user": {
-//             "name": "Newton",
-//             "avatars": {
-//                 "small": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//                 "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//                 "large": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//             },
-//             "handle": "@SirIsaac"
-//         },
-//         "content": {
-//             "text": "If I have seen further it is by standing on the shoulders of giants"
-//         },
-//         "created_at": 1461116232227
-//     },
-//     {
-//         "user": {
-//             "name": "Descartes",
-//             "avatars": {
-//                 "small": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-//                 "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-//                 "large": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-//             },
-//             "handle": "@rd"
-//         },
-//         "content": {
-//             "text": "Je pense , donc je suis"
-//         },
-//         "created_at": 1461113959088
-//     },
-//     {
-//         "user": {
-//             "name": "Johann von Goethe",
-//             "avatars": {
-//                 "small": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-//                 "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-//                 "large": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-//             },
-//             "handle": "@johann49"
-//         },
-// "content": {
-//     "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-// }
-//         "created_at": 1461113796368
-//     }];
 
-function loadTweets() {
+function createSubmitHandler(callback) {
     $('form').submit(function (event) {
         event.preventDefault();
-        const text = $('textarea').val();
         const form = $(this);
         const formData = form.serialize();
-
+        const text = $('textarea').val();
         if (!text.length) {
-            alert('Please type something!!!');
+            return alert('Please type something!!!');
         } else if (text.length > 140) {
-            alert('The maximum chacaters input is 140!');
+            return alert('The maximum chacaters input is 140!');
         } else {
-            const tweetData = {
-                "user": {
-                    "name": "",
-                    "avatars": {},
-                    "handle": ""
-                },
-                "content": {
-                    "text": text
-                },
-                "created_at": ''
-            };
-            renderTweets(tweetData);
             console.log('Form submitted, performing ajax call...');
             $.ajax('/tweets/', {
                 type: 'POST',
-                data: formData
+                data: formData,
+                complete: loadTweets
             })
         }
     });
 }
 
+function loadTweets() {
+    const tweetData = {
+        "user": {
+            "name": "",
+            "avatars": {},
+            "handle": ""
+        },
+        "content": {
+            "text": $('textarea').val()
+        },
+        "created_at": ''
+    };
+    renderTweets(tweetData);
+}
+
+function clickComposer() {
+    $('#composer').click(function (event) {
+        const nav = $('.section.new-tweet');
+        console.log('clicked composer button');
+        $(".section").slideToggle('slow', function () {
+            $("#text").focus();
+        });
+    })
+}
 $(document).ready(function () {
-    // renderTweets(tweetData);
-    loadTweets();
+    createSubmitHandler();
+    clickComposer();
 
 });
 
-
-// Test / driver code (temporary)

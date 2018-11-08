@@ -16,6 +16,8 @@ function changeCounter() {
 
 $(document).ready(function () {
 
+    console.log('document is ready');
+
     changeCounter();
 
 });

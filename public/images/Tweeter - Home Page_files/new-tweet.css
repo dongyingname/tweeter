@@ -1,0 +1,68 @@
+form{
+    padding-bottom:15px;
+}
+h2{
+    margin-top:0;
+
+    border-bottom: 2px solid #000;
+}
+#text{
+    height:100px;
+    width:100%;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#counter{
+    float:right;
+}
+
+.imgHeader {
+    float:left;
+    height: 50px;
+    width:50px;
+}
+
+.tweetHeader{
+    background-color:pink;
+    border-radius: 10px;
+}
+
+
+
+article{
+    background-color: aqua;
+    padding-top:12px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    border-radius: 25px;
+    opacity: 0.7;
+    
+}
+article:hover{
+    opacity: 1;
+}
+
+span.tweeter{
+    float: left;
+}
+span.hashtag{
+
+    float:right;
+}
+
+span.tweets{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+span.day{
+    font-size:50%;
+    float:left
+}
+span.link{
+    font-size:50%;
+    float:right;
+}
