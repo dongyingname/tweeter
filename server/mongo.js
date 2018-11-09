@@ -1,7 +1,8 @@
 "use strict";
-const { MongoClient } = require("mongodb");
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
+const MongoClient = require("mongodb").MongoClient;
+const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+module.exports = function(){
 MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
     console.error(`Failed to connect: ${MONGODB_URI}`);
@@ -18,7 +19,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       if (err) {
         return callback(err);
       }
-      callback(null, tweets);
+    return callback(null, tweets);
     });
   }
 
@@ -28,13 +29,15 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   getTweets((err, tweets) => {
     if (err) throw err;
-
+    let obj = tweets[0].tweets;
+    console.log(obj);
     console.log("Logging each tweet:");
-    for (let tweet of tweets) {
-      console.log(tweet);
-    }
+    // for (let tweet of tweets) {
+    //   console.log(tweet);
+    // }
 
     db.close();
   });
 
 });
+}
