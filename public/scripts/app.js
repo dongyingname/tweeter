@@ -63,10 +63,18 @@ function createSubmitHandler(callback) {
         const text = $('textarea').val();
 
         if (!text.length) {
-            return $("span.low").slideToggle('slow');
+            $("span.low").show('slow');
+            $('textarea').keydown(function (event) {
+                $("span.low").hide('slow');
+                $("span.high").hide('slow');
 
+            })
         } else if (text.length > 140) {
-            return $("span.high").slideToggle('slow');
+            $("span.high").show('slow');
+            $('textarea').keydown(function (event) {
+                $("span.low").hide('slow');
+                $("span.high").hide('slow');
+            })
         } else {
             $('textarea').keydown(function (event) {
                 $("span.low").hide('slow');
