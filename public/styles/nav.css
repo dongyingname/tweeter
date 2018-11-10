@@ -13,11 +13,15 @@ header {
 }
 
 nav {
-  height: 80px;
   background-color: #00a087;
   color: #e8fdff;
   padding-left: 2em;
   padding-right: 2em;
+  position: fixed;  
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height:80px;
 
 
 }
@@ -29,9 +33,11 @@ nav {
   margin-right: 10px;
 }
 
+
 #nav-bar .header {
   font-size: 200%;
   float: left;
+  line-height: 1.5;
 }
 
 #composer {
