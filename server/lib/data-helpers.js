@@ -21,12 +21,10 @@ module.exports = function makeDataHelpers(db) {
     getTweets: function (callback) {
       db.collection("tweets").find().toArray((err, tweets) => {
         if (err) throw err;
-
-        // let obj = tweets[0].tweets;
-        // console.log(obj);
-        // console.log("Logging each tweet:");;
+        // console.log(tweets);
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-        callback(null, tweets[0].tweets.sort(sortNewestFirst));
+        // console.log(tweets);
+        callback(null, tweets.sort(sortNewestFirst));
 
       });
     }
