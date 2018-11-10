@@ -14,7 +14,7 @@ function createTweetElement(data) {
     const $span4 = $("<span>").addClass("span day");
     const $span5 = $("<span>").addClass("span link");
     $image.attr('src', data.user.avatars.small);
-    $span1.text(data.user.name); 
+    $span1.text(data.user.name);
     $span2.text(data.user.handle);
     $span3.text(data.content.text);
     //uses newDate() to convert a unix standard date format
@@ -37,8 +37,10 @@ function createTweetElement(data) {
 //existing main, where data should be an object in a manner such that
 //allows the createTweetElement function to work on
 function renderTweets(data) {
-    const $tweet = createTweetElement(data);
-    $('main').append($tweet);
+    data.forEach(tweet => {
+        const $tweet = createTweetElement(tweet);
+        $('main').append($tweet);
+    })
 }
 
 //this function:
@@ -85,23 +87,19 @@ function createSubmitHandler(callback) {
 // 2. callback the renderTweets function and pass tweetData into it
 // so to append a new tweet to the exisiting tweet
 function loadTweets() {
-    const tweetData = {
-        "user": {
-            "name": "",
-            "avatars": {},
-            "handle": ""
-        },
-        "content": {
-            "text": $('textarea').val()
-        },
-        "created_at": ''
-    };
-    renderTweets(tweetData);
+    $.ajax('/tweets/', {
+        type: 'GET',
+        complete: function (res) {
+            const sortNewestFirst = (a, b) => b.created_at-a.created_at;
+        // console.log(tweets);
+        // callback(null, tweets.sort(sortNewestFirst));
+            const data = res.responseJSON;
+            // console.log(data.sort(sortNewestFirst));
+            renderTweets(data.sort(sortNewestFirst));
+        }
+    })
 }
 
-//a event listener on to #composer element 
-//when being clicked, the .section element will be toggled visible
-//the textarea is focused asynchronously
 function clickComposer() {
     $('#composer').click(function (event) {
         $(".section").slideToggle('slow', function () {
@@ -112,7 +110,7 @@ function clickComposer() {
 
 //call of all the above function after the document DOM is loaded
 $(document).ready(function () {
+    loadTweets();
     createSubmitHandler();
     clickComposer();
-
 });
