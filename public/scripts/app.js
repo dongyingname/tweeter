@@ -39,7 +39,7 @@ function createTweetElement(data) {
 function renderTweets(data) {
     data.forEach(tweet => {
         const $tweet = createTweetElement(tweet);
-        $('main').append($tweet);
+        $('#tweets').prepend($tweet);
     })
 }
 
@@ -76,7 +76,10 @@ function createSubmitHandler(callback) {
             $.ajax('/tweets/', {
                 type: 'POST',
                 data: formData,
-                complete: loadTweets
+                success: function (res) {
+                    console.log(res);
+                    renderTweets([res]);
+                }
             })
         }
     });
@@ -90,9 +93,9 @@ function loadTweets() {
     $.ajax('/tweets/', {
         type: 'GET',
         complete: function (res) {
-            const sortNewestFirst = (a, b) => b.created_at-a.created_at;
-        // console.log(tweets);
-        // callback(null, tweets.sort(sortNewestFirst));
+            const sortNewestFirst = (a, b) => a.created_at - b.created_at;
+            // console.log(tweets);
+            // callback(null, tweets.sort(sortNewestFirst));
             const data = res.responseJSON;
             // console.log(data.sort(sortNewestFirst));
             renderTweets(data.sort(sortNewestFirst));
