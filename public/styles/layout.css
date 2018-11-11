@@ -12,7 +12,8 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
+/* This file only contain the general styling of main section 
+whereas small details of sub section is in nav.css and new-tweet.css*/
 
 body {
   margin: 0;

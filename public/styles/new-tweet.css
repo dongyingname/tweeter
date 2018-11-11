@@ -1,3 +1,5 @@
+
+/* here starts the css styling for the form */
 h2 {
     font-size: 20px;
     border-bottom: 2px solid #000;
@@ -8,7 +10,6 @@ h2 {
     width: 100%;
     padding: 10px 10px 10px 10px;
     font-size: 20px;
-
 }
 
 #counter {
@@ -48,6 +49,7 @@ h2 {
     display: none;
 }
 
+/* here starts the css styling of the one hardcoded and newly-generated tweets */
 article {
     margin-bottom: 35px;
     border: 1px solid black;
@@ -55,34 +57,30 @@ article {
     opacity: 0.7;
     font-size: 15px;
     word-wrap: break-word;
-
 }
-
+/* hover effect to emphasis hovered tweeter */
 .tweetArticle:hover {
     opacity: 1;
-
 }
-
-
+/* the tweet user's name 
+and hashtag*/
 .tweeterDiv {
     float: left;
     margin-left: 10px;
 }
-
 .hashtagDiv {
     float: right;
     margin-right: 10px;
 }
-
+/* tweets content css */
 .tweetsDiv {
     font-size:120%;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 16.8px;
     padding-right: 16.8px;
-
 }
-
+/* the footers of tweets */
 footer {
     font-size: 80%;
     display: flex;
