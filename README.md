@@ -1,17 +1,35 @@
-# Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+# **Tweeter Project by [Ying Dong](https://github.com/dongyingname)**
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+## This is a tiny web app that is build to have basic functionality of tweeter:
+- User can post new tweets.
+- The page will dynamically generate the new tweets to the top of other older tweets.
+- Newly submitted tweets will be POST to the mongo data base through Ajax, which prevents eloading the page while the user still looks at the content.
 
-## Getting Started
-
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
-
-## Dependencies
-
+##Dependencies
+- node.js
 - Express
-- Node 5.10.x or above
+- body-parser
+- nodemon
+- chance
+- md5
+- mongoDB
+## Getting Started
+- $npm install to install all the dependencies.
+- $npm run local 
+- to run the web server
+## Important:
+- In order that the client properly access the mongoDB database the stored user data have to be separate objects which contain keys such as "_id", "user", and "content" and their values.
+- If your database is one single object that contains 1 "_id" key-value pair and one big object of usersdata you need to modify the app.js to make it work.
+
+### Screenshots
+- ![Tweeter Page with the Tweets Composer](/screenshots/composer.png)
+- ![Tweeter Page with the Tweets Composer Hidden](/screenshots/nocomposer.png)
+- ![Sample Tweet](/screenshots/tweet.png)
+## Author
+[Ying Dong](https://github.com/dongyingname)
+--Currently a student of [Lighthouse Labs Web Dev BootCamp](https://lighthouselabs.ca/web-bootcamp)
+--2 Month of Coding learning exprience
+
+## License
+Free.
