@@ -3,7 +3,7 @@
 
 <head>
   <title>Tweeter - Home Page</title>
-  <!-- font link:mali -->
+  <!-- External font library. font link:mali -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mali:300,300i,700,700i">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -17,19 +17,20 @@
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
   <!-- javascript that is used to compute the dynamic change of character counter  -->
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-  <!-- app.js controls the frontend dynamicity -->
+  <!-- app.js is our front end engine that oversees dynamic functionalities -->
   <script type="text/javascript" src="/scripts/app.js"></script>
 
 </head>
 
 <body>
-
+  <!-- navigation HTML -->
   <nav id="nav-bar">
     <img class="logo" src="/images/bird.png">
     <span class="header">Tweeter</span>
     <button id="composer">Compose</button>
   </nav>
 
+  <!-- most important container which contains POST form and tweeters -->
   <main>
     <!-- #new-tweet section is the form -->
     <section id="new-tweet">
@@ -38,19 +39,24 @@
         <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
         <input class="click" type="submit" value="Tweet">
         <span id="counter"">140</span>
-        </form>
-        <span class=" lowError">Please type something!!!</span>
-        <span class="highError">The maximum chacaters input is 140!</span>
+      </form>
+      <span class=" lowError">Please type something!!!</span>
+      <span class="highError">The maximum chacaters input is 140!</span>
     </section>
-    <!-- #tweets section is the new tweets -->
+    <!-- #tweets section is the new tweets where newly POSTed tweets are prepend to the top-->
+    <!-- The following is the hard coded tweet which is used to compare the structure of dynamically
+    generated tweets -->
     <section id="tweets">
       <article class="tweetArticle">
+
         <header class="tweetHeader">
           <img class="imgHeader" src="/images/chopper.png" alt="chopper">
           <div class="tweeterDiv">Name</div>
           <div class=" hashtagDiv">@who</div>
         </header>
+
         <div class="tweetsDiv">This is my tweet</div>
+
         <footer class="tweetFooter">
           <div class="dayDiv">10 day ago</div>
           <div class="linkDiv">
@@ -64,12 +70,11 @@
               <img class="link retweet" src="/images/retweet.png">
             </a>
           </div>
-
         </footer>
+
       </article>
     </section>
   </main>
-
 
 </body>
 
