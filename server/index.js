@@ -1,7 +1,9 @@
 "use strict";
-
-// Basic express setup:
-
+//collect all the server requirements:
+//express
+//bodyParser for POST request
+//mongoDB database tool
+//use localhost:8080 as the main page 
 const PORT = 8080;
 const express = require("express");
 const bodyParser = require("body-parser");
