@@ -30,29 +30,40 @@
     <button id="composer">Compose</button>
   </nav>
 
-  <main class="container">
-    <section class="section new-tweet">
+  <main>
+    <!-- #new-tweet section is the form -->
+    <section id="new-tweet">
       <h2>Compose Tweet</h2>
       <form id="tweetForm" method="POST" action="/tweets/">
         <textarea id="text" name="text" placeholder="What are you humming about?"></textarea>
         <input class="click" type="submit" value="Tweet">
         <span id="counter"">140</span>
         </form>
-        <span class=" low error">Please type something!!!</span>
-        <span class="high error">The maximum chacaters input is 140!</span>
+        <span class=" lowError">Please type something!!!</span>
+        <span class="highError">The maximum chacaters input is 140!</span>
     </section>
+    <!-- #tweets section is the new tweets -->
     <section id="tweets">
-      <article class=" article tweet">
+      <article class="tweetArticle">
         <header class="tweetHeader">
           <img class="imgHeader" src="/images/chopper.png" alt="chopper">
-          <span class="span tweeter">Name</span>
-          <span class="span hashtag">@who</span>
+          <div class="tweeterDiv">Name</div>
+          <div class=" hashtagDiv">@who</div>
         </header>
-        <span class="span tweets">This is my tweet</span>
+        <div class="tweetsDiv">This is my tweet</div>
         <footer class="tweetFooter">
-          <span class="span day">10 day ago</span>
-
-          <span class="span link">This are some links</span>
+          <div class="dayDiv">10 day ago</div>
+          <div class="linkDiv">
+            <a class="aLike" href="">
+              <img class="link like" src="/images/like.png">
+            </a>
+            <a class="aFlag" href="">
+              <img class="link flag" src="/images/flag.png">
+            </a>
+            <a class="aRetweet" href="">
+              <img class="link retweet" src="/images/retweet.png">
+            </a>
+          </div>
 
         </footer>
       </article>
