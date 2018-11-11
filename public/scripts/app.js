@@ -67,7 +67,6 @@ function createSubmitHandler(callback) {
             $('textarea').keydown(function (event) {
                 $("span.low").hide('slow');
                 $("span.high").hide('slow');
-
             })
         } else if (text.length > 140) {
             $("span.high").show('slow');
@@ -76,19 +75,16 @@ function createSubmitHandler(callback) {
                 $("span.high").hide('slow');
             })
         } else {
-            $('textarea').keydown(function (event) {
-                $("span.low").hide('slow');
-                $("span.high").hide('slow');
-            });
             console.log('Form submitted, performing ajax call...');
             $.ajax('/tweets/', {
                 type: 'POST',
                 data: formData,
                 success: function (res) {
-                    console.log(res);
                     renderTweets([res]);
                 }
             })
+            $('textarea')[0].value = '';
+            $("#counter")[0].textContent = 140;
         }
     });
 }
