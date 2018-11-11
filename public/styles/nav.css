@@ -33,7 +33,6 @@ nav {
   margin-right: 10px;
 }
 
-
 #nav-bar .header {
   font-size: 200%;
   float: left;
@@ -55,6 +54,3 @@ nav {
   opacity: 1;
 }
 
-.new-tweet{
-  display:none;
-}

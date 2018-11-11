@@ -7,7 +7,7 @@ h2 {
     height: 100px;
     width: 100%;
     padding: 10px 10px 10px 10px;
-    font-size: 22px;
+    font-size: 20px;
 
 }
 
@@ -30,18 +30,23 @@ h2 {
     padding-right: 16.8px;
     padding-top: 10px;
     padding-bottom: 10px;
-
-
-
 }
 
-.section.new-tweet {
+#new-tweet {
     background-color: #e4f0f9;
     border: 1px solid black;
     padding-left: 16.8px;
     padding-right: 16.8px;
+    display: none;
 }
 
+.highError {
+    display: none;
+}
+
+.lowError {
+    display: none;
+}
 
 article {
     margin-bottom: 35px;
@@ -53,21 +58,24 @@ article {
 
 }
 
-article:hover {
+.tweetArticle:hover {
     opacity: 1;
+
 }
 
-span.tweeter {
+
+.tweeterDiv {
     float: left;
     margin-left: 10px;
 }
 
-span.hashtag {
+.hashtagDiv {
     float: right;
     margin-right: 10px;
 }
 
-span.tweets {
+.tweetsDiv {
+    font-size:120%;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 16.8px;
@@ -76,7 +84,7 @@ span.tweets {
 }
 
 footer {
-    font-size: 50%;
+    font-size: 80%;
     display: flex;
     justify-content: space-between;
     padding-left: 16.8px;
@@ -85,6 +93,20 @@ footer {
     padding-bottom: 10px;
 }
 
-span.error {
-    display: none;
+.link {
+    width:15px;
+    height:15px;
+    margin-left:5px;
+    display:none;   
 }
+
+.link.show{
+    display:block;
+    width:15px;
+    height:15px;
+    margin-left:5px;
+   
+}
+
+
+

@@ -4,31 +4,44 @@
 //apply the styles to respective classes
 function createTweetElement(data) {
     // create elements with special classnames
-    const $tweet = $("<article>").addClass("article tweet");
+    const $tweet = $("<article>").addClass("tweetArticle");
     const $header = $("<header>").addClass("tweetHeader");
     const $image = $("<img>").addClass("imgHeader");
-    const $span1 = $("<span>").addClass("div tweeter");
-    const $span2 = $("<span>").addClass("span hashtag");
-    const $span3 = $("<span>").addClass("span tweets");
+    const $div1 = $("<div>").addClass("tweeterDiv");
+    const $div2 = $("<div>").addClass("hashtagDiv");
+    const $div3 = $("<div>").addClass("tweetsDiv");
     const $footer = $("<footer>").addClass("tweetFooter");
-    const $span4 = $("<span>").addClass("span day");
-    const $span5 = $("<span>").addClass("span link");
+    const $div4 = $("<div>").addClass("dayDiv");
+    const $div5 = $("<div>").addClass("linkDiv");
+    const $a1 = $("<a>").addClass("aLike");
+    const $a2 = $("<a>").addClass("aFlag");
+    const $a3 = $("<a>").addClass("aRetweet");
+    //hardcode img links 
+    const $img1 = $("<img>").attr("src", "http://chittagongit.com//images/twitter-like-icon/twitter-like-icon-24.jpg").addClass("link like");
+    const $img2 = $("<img>").attr("src", "http://icons-for-free.com/free-icons/png/512/1665645.png").addClass("link flag");
+    const $img3 = $("<img>").attr("src", "https://cdn141.picsart.com/271343942011211.png").addClass("link retweet");
+    $a1.append($img1);
+    $a2.append($img2);
+    $a3.append($img3);
+    $div5.append($a1, $a2, $a3);
+
     $image.attr('src', data.user.avatars.small);
-    $span1.text(data.user.name);
-    $span2.text(data.user.handle);
-    $span3.text(data.content.text);
+    $div1.text(data.user.name);
+    $div2.text(data.user.handle);
+    $div3.text(data.content.text);
     //uses newDate() to convert a unix standard date format
     //to a real date
     const date = new Date(data.created_at).toString();
     const arr = date.split(' ');
     //index 0 1 2 3 refers to day month year 
     const newDate = arr[0] + arr[1] + arr[2] + arr[3];
-    $span4.text(newDate);
+    $div4.text(newDate);
+
     //reconstruct big sections by appending children in the disired
     //and logical order
-    $header.append($image, $span1, $span2);
-    $footer.append($span4, $span5);
-    $tweet.append($header, $span3, $footer);
+    $header.append($image, $div1, $div2);
+    $footer.append($div4, $div5);
+    $tweet.append($header, $div3, $footer);
 
     return $tweet;
 }
@@ -46,7 +59,7 @@ function renderTweets(data) {
 //this function:
 //1. add an event listener using jquery syntax by listening submit action
 //on <form> element
-//2. if statements to give a dynamic alert using slideToggle on a span element 
+//2. if statements to give a dynamic alert using slideToggle on a div element 
 //in the <form> element whenever the character length in the textarea is over
 //140 and below 0
 // 3. the error messages would disapear when additional input is detected
@@ -63,16 +76,16 @@ function createSubmitHandler(callback) {
         const text = $('textarea').val();
 
         if (!text.length) {
-            $("span.low").show('slow');
+            $(".lowError").show('slow');
             $('textarea').keydown(function (event) {
-                $("span.low").hide('slow');
-                $("span.high").hide('slow');
+                $(".lowError").hide('slow');
+                $(".highError").hide('slow');
             })
         } else if (text.length > 140) {
-            $("span.high").show('slow');
-            $('textarea').keydown(function (event) {
-                $("span.low").hide('slow');
-                $("span.high").hide('slow');
+            $(".highError").show('slow');
+            $('.textarea').keydown(function (event) {
+                $(".lowError").hide('slow');
+                $(".highError").hide('slow');
             })
         } else {
             console.log('Form submitted, performing ajax call...');
@@ -98,10 +111,7 @@ function loadTweets() {
         type: 'GET',
         complete: function (res) {
             const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-            // console.log(tweets);
-            // callback(null, tweets.sort(sortNewestFirst));
             const data = res.responseJSON;
-            // console.log(data.sort(sortNewestFirst));
             renderTweets(data.sort(sortNewestFirst));
         }
     })
@@ -109,9 +119,20 @@ function loadTweets() {
 
 function clickComposer() {
     $('#composer').click(function (event) {
-        $(".section").slideToggle('slow', function () {
+        $("#new-tweet").slideToggle('slow', function () {
             $("#text").focus();
         });
+    })
+}
+
+function hoverArticles() {
+    $('.tweetArticle').on("mouseover", function (event) {
+        console.log('mouseoever!!!');
+        $(this).find('.link').show();
+    })
+    $('.tweetArticle').on("mouseout", function (event) {
+
+        $(this).find('.link').hide();
     })
 }
 
@@ -120,4 +141,5 @@ $(document).ready(function () {
     loadTweets();
     createSubmitHandler();
     clickComposer();
+    hoverArticles();
 });
