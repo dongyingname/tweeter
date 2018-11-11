@@ -14,29 +14,12 @@ module.exports = function (DataHelpers) {
           error: err.message
         });
       } else {
-        //console.log(tweets);
         res.json(tweets);
       }
     });
   });
 
-  // tweetsRoutes.get("/tweets/", function (req, res) {
-  //   res.redirect('/');
-  //   console.log('GOT it');
-  // });
-
-
-
-
-
-
-
-  // //Route POST to /tweets
-  // tweetsRoutes.post("/tweets", function (req, res) {
-  //   console.log("you made to /tweets!");
-  // });
-
-
+  //POST route to endpoint "/"
   tweetsRoutes.post("/", function (req, res) {
     if (!req.body.text) {
       res.status(400).json({
@@ -44,7 +27,7 @@ module.exports = function (DataHelpers) {
       });
       return;
     }
-
+    //user id is randomly generated using a premade function
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
@@ -61,11 +44,9 @@ module.exports = function (DataHelpers) {
         });
       } else {
         res.status(201).json(tweet);
-  
       }
     });
   });
 
   return tweetsRoutes;
-
 }
