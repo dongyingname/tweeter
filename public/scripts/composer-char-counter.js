@@ -1,5 +1,5 @@
-//Document Ready Check
 
+//This file is used to control the behavior of the counting number
 //Dynamic change to textarea
 // 1. listen to keydown event to textarea 
 // 2. the max character length in textarea is 140 allowed
@@ -18,9 +18,7 @@ function changeCounter() {
         }
     });
 }
-//start to use changeCounter after DOM is loaded
+//Necessary step to make sure counter is only fired after DOM structure is ready
 $(document).ready(function () {
-
     changeCounter();
-
 });

@@ -3,7 +3,9 @@
 //I manually hardcode the layout, but the css files automatic 
 //apply the styles to respective classes
 function createTweetElement(data) {
-    // create elements with special classnames
+
+    // create elements with special classnames to make sure css automaticly and properly apply
+    //to all these elements
     const $tweet = $("<article>").addClass("tweetArticle");
     const $header = $("<header>").addClass("tweetHeader");
     const $image = $("<img>").addClass("imgHeader");
@@ -16,7 +18,7 @@ function createTweetElement(data) {
     const $a1 = $("<a>").addClass("aLike");
     const $a2 = $("<a>").addClass("aFlag");
     const $a3 = $("<a>").addClass("aRetweet");
-    //hardcode img links 
+    //hardcode img links, which are used to display like, flag, retweet icons in the tweets' footers
     const $img1 = $("<img>").attr("src", "http://chittagongit.com//images/twitter-like-icon/twitter-like-icon-24.jpg").addClass("link like");
     const $img2 = $("<img>").attr("src", "http://icons-for-free.com/free-icons/png/512/1665645.png").addClass("link flag");
     const $img3 = $("<img>").attr("src", "https://cdn141.picsart.com/271343942011211.png").addClass("link retweet");
@@ -25,10 +27,12 @@ function createTweetElement(data) {
     $a3.append($img3);
     $div5.append($a1, $a2, $a3);
 
+    //assign values to skeletons of the tweets by accessing mongo database, "data" argument
     $image.attr('src', data.user.avatars.small);
     $div1.text(data.user.name);
     $div2.text(data.user.handle);
     $div3.text(data.content.text);
+
     //uses newDate() to convert a unix standard date format
     //to a real date
     const date = new Date(data.created_at).toString();
@@ -63,7 +67,6 @@ function renderTweets(data) {
 //in the <form> element whenever the character length in the textarea is over
 //140 and below 0
 // 3. the error messages would disapear when additional input is detected
-
 // 4. if the character length  is between 0 and 140, it will console.log and send 
 // a post request to the server through ajax
 // 5. loadTweets function is the value of the complete key so that after the post
@@ -124,7 +127,8 @@ function clickComposer() {
         });
     })
 }
-
+//hoverArticles function still needs to be improved to properly change the 
+//hover effect on footer icons
 function hoverArticles() {
     $('.tweetArticle').on("mouseover", function (event) {
         console.log('mouseoever!!!');
@@ -136,7 +140,7 @@ function hoverArticles() {
     })
 }
 
-//call of all the above function after the document DOM is loaded
+//call all the above function after the document DOM is loaded
 $(document).ready(function () {
     loadTweets();
     createSubmitHandler();
