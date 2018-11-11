@@ -1,4 +1,3 @@
-
 /* here starts the css styling for the form */
 h2 {
     font-size: 20px;
@@ -13,7 +12,13 @@ h2 {
 }
 
 #counter {
+    margin-top: 10px;
+    margin-right:5px;
     float: right;
+}
+
+.click {
+    margin-top: 10px;
 }
 
 .imgHeader {
@@ -58,28 +63,38 @@ article {
     font-size: 15px;
     word-wrap: break-word;
 }
+
 /* hover effect to emphasis hovered tweeter */
 .tweetArticle:hover {
     opacity: 1;
 }
+
 /* the tweet user's name 
 and hashtag*/
 .tweeterDiv {
     float: left;
     margin-left: 10px;
+    font-size: 23px;
+    font-style:italic;
 }
+
 .hashtagDiv {
     float: right;
+    margin-top:5px;
     margin-right: 10px;
+    font-size: 20px;
+
 }
+
 /* tweets content css */
 .tweetsDiv {
-    font-size:120%;
+    font-size: 120%;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-left: 16.8px;
     padding-right: 16.8px;
 }
+
 /* the footers of tweets */
 footer {
     font-size: 80%;
@@ -89,22 +104,20 @@ footer {
     padding-right: 16.8px;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-top: grey solid 0.5px;
 }
 
 .link {
-    width:15px;
-    height:15px;
-    margin-left:5px;
-    display:none;   
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    display: none;
 }
 
-.link.show{
-    display:block;
-    width:15px;
-    height:15px;
-    margin-left:5px;
-   
+.link.show {
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+
 }
-
-
-
