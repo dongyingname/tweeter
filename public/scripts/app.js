@@ -1,5 +1,7 @@
-//tweeter constructor. It dnamicly reconstruct the tweets so
-//that they look the same
+// Takes an object as argument, use its values to reconstruct new DOM structure
+// and return a <article> DOM node
+///Functionality: It dnamicly reconstruct the tweets so
+// that they look the same
 //I manually hardcode the layout, but the css files automatic 
 //apply the styles to respective classes
 function createTweetElement(data) {
@@ -49,8 +51,8 @@ function createTweetElement(data) {
 
     return $tweet;
 }
-
-//renderTweets append the newly constructed main sub section to the 
+//Takes an object as an arguent 
+//Functionality: Append the newly constructed main sub section to the 
 //existing main, where data should be an object in a manner such that
 //allows the createTweetElement function to work on
 function renderTweets(data) {
@@ -59,6 +61,7 @@ function renderTweets(data) {
         $('#tweets').prepend($tweet);
     })
 }
+
 
 //this function:
 //1. add an event listener using jquery syntax by listening submit action
@@ -71,7 +74,7 @@ function renderTweets(data) {
 // a post request to the server through ajax
 // 5. loadTweets function is the value of the complete key so that after the post
 // it will trigger and append the new tweet to the existing tweets
-function createSubmitHandler(callback) {
+function createSubmitHandler() {
     $('form').submit(function (event) {
         event.preventDefault();
         const form = $(this);
@@ -127,8 +130,9 @@ function clickComposer() {
         });
     });
 }
-//hoverArticles function still needs to be improved to properly change the 
-//hover effect on footer icons
+//When hoverArticles function is called a mouseover/mouseout event is added to all tweets,
+//mouseover will trigger display of link icons
+//mouseout will undisplay link icons
 function hoverArticles() {
 
     $('#tweets').on("mouseover", ".tweetArticle", function (event) {
