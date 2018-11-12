@@ -13,7 +13,7 @@ h2 {
 
 #counter {
     margin-top: 10px;
-    margin-right:5px;
+    margin-right: 5px;
     float: right;
 }
 
@@ -75,12 +75,12 @@ and hashtag*/
     float: left;
     margin-left: 10px;
     font-size: 23px;
-    font-style:italic;
+    font-style: italic;
 }
 
 .hashtagDiv {
     float: right;
-    margin-top:5px;
+    margin-top: 5px;
     margin-right: 10px;
     font-size: 20px;
 
@@ -108,16 +108,9 @@ footer {
 }
 
 .link {
-    width: 15px;
-    height: 15px;
-    margin-left: 5px;
     display: none;
-}
-
-.link.show {
-    display: block;
+    float: right;
     width: 15px;
     height: 15px;
     margin-left: 5px;
-
 }

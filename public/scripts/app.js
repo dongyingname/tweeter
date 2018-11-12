@@ -19,9 +19,9 @@ function createTweetElement(data) {
     const $a2 = $("<a>").addClass("aFlag");
     const $a3 = $("<a>").addClass("aRetweet");
     //hardcode img links, which are used to display like, flag, retweet icons in the tweets' footers
-    const $img1 = $("<img>").attr("src", "http://chittagongit.com//images/twitter-like-icon/twitter-like-icon-24.jpg").addClass("link like");
-    const $img2 = $("<img>").attr("src", "http://icons-for-free.com/free-icons/png/512/1665645.png").addClass("link flag");
-    const $img3 = $("<img>").attr("src", "https://cdn141.picsart.com/271343942011211.png").addClass("link retweet");
+    const $img1 = $("<img>").attr("src", "../images/like.png").addClass("link like");
+    const $img2 = $("<img>").attr("src", "../images/flag.png").addClass("link flag");
+    const $img3 = $("<img>").attr("src", "../images/retweet.png").addClass("link retweet");
     $a1.append($img1);
     $a2.append($img2);
     $a3.append($img3);
@@ -117,7 +117,7 @@ function loadTweets() {
             const data = res.responseJSON;
             renderTweets(data.sort(sortNewestFirst));
         }
-    })
+    });
 }
 
 function clickComposer() {
@@ -125,19 +125,18 @@ function clickComposer() {
         $("#new-tweet").slideToggle('slow', function () {
             $("#text").focus();
         });
-    })
+    });
 }
 //hoverArticles function still needs to be improved to properly change the 
 //hover effect on footer icons
 function hoverArticles() {
-    $('.tweetArticle').on("mouseover", function (event) {
-        console.log('mouseoever!!!');
-        $(this).find('.link').show();
-    })
-    $('.tweetArticle').on("mouseout", function (event) {
 
+    $('#tweets').on("mouseover", ".tweetArticle", function (event) {
+        $(this).find('.link').show();
+    });
+    $('#tweets').on("mouseout", ".tweetArticle", function (event) {
         $(this).find('.link').hide();
-    })
+    });
 }
 
 //call all the above function after the document DOM is loaded
